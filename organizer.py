@@ -54,3 +54,8 @@ CATEGORIES = {
     ".m4a": "Audio",
     ".wma": "Audio"
 }
+
+str_path = input("Enter filepath: ")
+path = Path(str_path)
+
+
