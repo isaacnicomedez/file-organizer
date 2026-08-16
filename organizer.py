@@ -60,3 +60,11 @@ path = Path(str_path)
 
 files = [x for x in path.iterdir() if x.is_file()]
 
+for f in files:
+    for ex, c in CATEGORIES.items():
+        if f.suffix == ex:
+            destination = Path(f"{str_path}/{c}")
+            destination.mkdir(parents=True, exist_ok=True)
+
+for p in path.iterdir():
+    print(p.name)
