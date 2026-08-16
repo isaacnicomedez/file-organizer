@@ -58,4 +58,5 @@ CATEGORIES = {
 str_path = input("Enter filepath: ")
 path = Path(str_path)
 
+files = [x for x in path.iterdir() if x.is_file()]
 
