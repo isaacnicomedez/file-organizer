@@ -66,5 +66,8 @@ for f in files:
             destination = Path(f"{str_path}/{c}")
             destination.mkdir(parents=True, exist_ok=True)
 
+            target_path = destination / f.name
+            f.rename(target_path)
+
 for p in path.iterdir():
     print(p.name)
