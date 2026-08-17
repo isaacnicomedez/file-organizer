@@ -73,7 +73,7 @@ for f in files:
             matched = True
             break
 
-    if not matched or f.is_dir():
+    if not matched:
         destination = path / "Others"
         destination.mkdir(parents=True, exist_ok=True)
 
