@@ -61,13 +61,25 @@ path = Path(str_path)
 files = [x for x in path.iterdir() if x.is_file()]
 
 for f in files:
+    matched = False
     for ex, c in CATEGORIES.items():
         if f.suffix == ex:
-            destination = Path(f"{str_path}/{c}")
+            destination = path / c
             destination.mkdir(parents=True, exist_ok=True)
 
-            target_path = destination / f.name
-            f.rename(target_path)
+            target = destination / f.name
+            f.rename(target)
 
+            matched = True
+            break
+
+    if not matched or f.is_dir():
+        destination = path / "Others"
+        destination.mkdir(parents=True, exist_ok=True)
+
+        target = destination / f.name
+        f.rename(target)
+
+print("\nUpdated")
 for p in path.iterdir():
     print(p.name)
